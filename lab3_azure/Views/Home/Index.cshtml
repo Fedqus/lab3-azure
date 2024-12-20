@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Upload file</h1>
+<form enctype="multipart/form-data" action="" method="post">
+    <input name="file" type="file"/>
+    <button class="btn btn-primary" type="submit">Upload</button>
+</form>
+<h3 class="mt-2">Uploaded files:</h3>
+<ol>
+    @foreach (string fileName in (ViewBag.BlobList as List<string>) ?? new List<string>())
+    {
+        <li><a href='/home/download?fileName=@fileName'>@fileName</a></li>
+    }
+</ol>
